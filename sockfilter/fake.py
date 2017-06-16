@@ -18,7 +18,7 @@ class Fake(object):
                 self._real_socket = real.socket__socket(*args, **kwargs)
 
             def connect(self, address):
-                a = Address(*address)
+                a = Address(address)
                 if not predicate(a):
                     raise SockFilterError(a)
                 self._real_socket.connect(address)
