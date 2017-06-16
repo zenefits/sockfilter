@@ -3,9 +3,9 @@ __all__ = ['Address']
 
 class Address(object):
     def __init__(self, address):
-        self.path = None
         self.host = None
         self.port = None
+        self.path = None
         if isinstance(address, basestring):
             self.path = address
         elif len(address) == 2:
@@ -21,3 +21,11 @@ class Address(object):
 
     def __ne__(self, other):
         return not self.__eq__(other)
+
+
+    def __repr__(self):
+        return "<Address host: '{}', port: '{}', path: '{}'>".format(
+            self.host,
+            self.port,
+            self.path,
+        )
