@@ -2,7 +2,6 @@ from contextlib import contextmanager
 from flask import Flask
 import functools
 from multiprocessing import Process
-from OpenSSL import SSL
 import os.path
 import time
 
@@ -33,10 +32,7 @@ def server(port, use_ssl=False):
 
 
 def ssl_context():
-    c = SSL.Context(SSL.SSLv23_METHOD)
-    c.use_privatekey_file(file('key.pem'))
-    c.use_certificate_file(file('cert.pem'))
-    return c
+    return (file('cert.pem'), file('key.pem'))
 
 
 def file(name):
