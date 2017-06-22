@@ -11,3 +11,6 @@ def test_address_to_str():
 
     to_str = str(Address(('https://google.com', 443)))
     equals(to_str, "<Address host: 'https://google.com', port: '443', path: 'None'>")
+
+    to_str = str(Address(('https://google.com', 443, 0, 0)))
+    equals(to_str, "<Address host: 'https://google.com', port: '443', path: 'None'>")

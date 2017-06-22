@@ -8,8 +8,9 @@ class Address(object):
         self.path = None
         if isinstance(address, basestring):
             self.path = address
-        elif len(address) == 2:
-            self.host, self.port = address
+        elif len(address) >= 2:
+            self.host = address[0]
+            self.port = address[1]
         else:
             raise ValueError('Unexpected params for Address: {}'.format(address))
 
